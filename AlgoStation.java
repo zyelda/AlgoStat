@@ -11,10 +11,13 @@ public class AlgoStation {
         boolean running = true;
 
         while (running) {
-            System.out.println("\nMenu:");
+            System.out.println("=================================================");
+            System.out.println("|            ALGOSTAT TRAIN STATION             |");
+            System.out.println("=================================================");
+            System.out.println("Silahkan Pilih Menu:");
             System.out.println("1. Rekomendasi kereta");
             System.out.println("2. Cek jadwal kereta");
-            System.out.println("3. Pesan tiket kereta");
+            System.out.println("3. Beli tiket kereta");
             System.out.println("4. Cek jumlah penumpang");
             System.out.println("5. Keluar dari program");
             System.out.print("Pilih menu (1-5): ");
@@ -122,7 +125,7 @@ public class AlgoStation {
     }
 
     static void bookTicket(Scanner scanner) {
-        System.out.println("Booking ticket...");
+        System.out.println("Beli Tiket");
         System.out.print("Masukkan nama kereta: ");
         String trainName = scanner.nextLine();
         System.out.print("Masukkan nama penumpang: ");

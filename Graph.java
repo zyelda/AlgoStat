@@ -1,4 +1,4 @@
-// Linked list untuk merepresentasikan graph
+//linked list untuk merepresentasikan graph sebagai rute kereta
 class Graph {
     StationNode head;
 
