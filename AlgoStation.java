@@ -93,7 +93,7 @@ public class AlgoStation {
     static void recommendTrain(Scanner scanner) {
         System.out.print("Masukkan stasiun tujuan: ");
         String destinationStation = scanner.nextLine();
-        graph.dijkstra("Stasiun A"); // Ganti "Stasiun A" dengan stasiun awal
+        graph.dijkstra("Stasiun A");
         graph.printShortestPath(destinationStation);
     }
     
