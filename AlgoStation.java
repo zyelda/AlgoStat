@@ -91,38 +91,12 @@ public class AlgoStation {
     }
 
     static void recommendTrain(Scanner scanner) {
-        System.out.println("Recommending train...");
-        System.out.print("Masukkan tujuan: ");
-        String destination = scanner.nextLine();
-        System.out.print("Masukkan jam keberangkatan (HH:mm): ");
-        String departureTime = scanner.nextLine();
-
-        TrainNode temp = trains.head;
-        Train recommendedTrain1 = null, recommendedTrain2 = null;
-
-        while (temp != null) {
-            Train currentTrain = temp.train;
-            if (currentTrain.schedule.compareTo(departureTime) >= 0) {
-                if (recommendedTrain1 == null || currentTrain.schedule.compareTo(recommendedTrain1.schedule) < 0) {
-                    recommendedTrain2 = recommendedTrain1;
-                    recommendedTrain1 = currentTrain;
-                } else if (recommendedTrain2 == null || currentTrain.schedule.compareTo(recommendedTrain2.schedule) < 0) {
-                    recommendedTrain2 = currentTrain;
-                }
-            }
-            temp = temp.next;
-        }
-
-        if (recommendedTrain1 != null) {
-            System.out.println("Rekomendasi 1: " + recommendedTrain1.name + " - " + recommendedTrain1.schedule + " - " + recommendedTrain1.departureStation);
-        }
-        if (recommendedTrain2 != null) {
-            System.out.println("Rekomendasi 2: " + recommendedTrain2.name + " - " + recommendedTrain2.schedule + " - " + recommendedTrain2.departureStation);
-        }
-        if (recommendedTrain1 == null && recommendedTrain2 == null) {
-            System.out.println("Tidak ada kereta yang cocok.");
-        }
+        System.out.print("Masukkan stasiun tujuan: ");
+        String destinationStation = scanner.nextLine();
+        graph.dijkstra("Stasiun A"); // Ganti "Stasiun A" dengan stasiun awal
+        graph.printShortestPath(destinationStation);
     }
+    
 
     static void bookTicket(Scanner scanner) {
         System.out.println("Beli Tiket");

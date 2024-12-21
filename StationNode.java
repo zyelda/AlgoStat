@@ -3,11 +3,15 @@ class StationNode {
     String station;
     Places destination;
     StationNode next;
+    StationNode previous;
+    int distance;
 
     StationNode(String station) {
         this.station = station;
         this.destination = null;
         this.next = null;
+        this.previous = null;
+        this.distance = Integer.MAX_VALUE;
     }
 
     void addRoute(String Route, int distance) {
