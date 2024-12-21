@@ -2,6 +2,7 @@
 class TrainList {
     TrainNode head;
 
+    //Menambah kereta dengan menggunakan struktur linked list
     void addTrain(Train train) {
         TrainNode newNode = new TrainNode(train);
         if (head == null) {
@@ -24,6 +25,7 @@ class TrainList {
         }
     }
 
+    //Search sekuensial
     Train findTrainByName(String name) {
         System.out.println("Searching for train: " + name);
         TrainNode temp = head;
@@ -42,5 +44,31 @@ class TrainList {
             temp.train.displayPassengers();
             temp = temp.next;
         }
+    }
+    
+    //Sort kereta berdasarkan jadwal menggunakan bubble sort
+    void bubblesort(){
+        if (head == null || head.next == null) {
+            return;
+        }
+    
+        boolean swapped;
+        do {
+            swapped = false;
+            TrainNode current = head;
+            TrainNode prev = null;
+    
+            while (current != null && current.next != null) {
+                if (current.train.schedule.compareTo(current.next.train.schedule) > 0) {
+                    Train tempTrain = current.train;
+                    current.train = current.next.train;
+                    current.next.train = tempTrain;
+    
+                    swapped = true;
+                }
+                prev = current;
+                current = current.next;
+            }
+        } while (swapped);
     }
 }

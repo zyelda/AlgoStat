@@ -31,6 +31,7 @@ public class AlgoStation {
                     recommendTrain(scanner);
                     break;
                 case 2:
+                    trains.bubblesort();
                     trains.displaySchedule();
                     break;
                 case 3:
@@ -60,16 +61,16 @@ public class AlgoStation {
 
     static void initializeGraph() {
         // Menambahkan stasiun ke graph
-        graph.addStation("Stasiun A");
-        graph.addStation("Pabrik A");
-        graph.addStation("Pabrik B");
-        graph.addStation("Taman");
-        graph.addStation("Bukit");
-        graph.addStation("Laut");
-        graph.addStation("Hutan");
-        graph.addStation("Rumah Sakit");
-        graph.addStation("Bandara");
-        graph.addStation("Stasiun B");
+        graph.addVertex("Stasiun A");
+        graph.addVertex("Pabrik A");
+        graph.addVertex("Pabrik B");
+        graph.addVertex("Taman");
+        graph.addVertex("Bukit");
+        graph.addVertex("Laut");
+        graph.addVertex("Hutan");
+        graph.addVertex("Rumah Sakit");
+        graph.addVertex("Bandara");
+        graph.addVertex("Stasiun B");
 
         // Menambahkan edge ke graph
         graph.addEdge("Stasiun A", "Pabrik A", 3);
@@ -97,7 +98,6 @@ public class AlgoStation {
         graph.printShortestPath(destinationStation);
     }
     
-
     static void bookTicket(Scanner scanner) {
         System.out.println("Beli Tiket");
         System.out.print("Masukkan nama kereta: ");
@@ -108,7 +108,7 @@ public class AlgoStation {
         Train train = trains.findTrainByName(trainName);
         if (train != null) {
             if (train.capacity > 0) {
-                train.addPassenger(passengerName);
+                train.pushPassenger(passengerName);
                 System.out.println("Tiket berhasil dipesan untuk " + passengerName + " di kereta " + trainName);
             } else {
                 System.out.println("Kereta " + trainName + " sudah penuh.");

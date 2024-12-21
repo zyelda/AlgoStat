@@ -2,7 +2,8 @@
 class Graph {
     StationNode head;
 
-    void addStation(String station) {
+    //Menambah vertex
+    void addVertex(String station) {
         StationNode newStation = new StationNode(station);
         if (head == null) {
             head = newStation;
@@ -15,6 +16,7 @@ class Graph {
         }
     }
 
+    //Search sekuensial
     StationNode findStation(String station) {
         StationNode temp = head;
         while (temp != null) {
@@ -26,6 +28,7 @@ class Graph {
         return null;
     }
 
+    //Menambah edge
     void addEdge(String fromStation, String toStation, int distance) {
         StationNode station = findStation(fromStation);
         if (station != null) {
@@ -42,6 +45,7 @@ class Graph {
             temp = temp.next;
         }
     }
+
     void dijkstra(String sourceStation) {
         StationNode source = findStation(sourceStation);
         source.distance = 0;

@@ -14,6 +14,7 @@ class StationNode {
         this.distance = Integer.MAX_VALUE;
     }
 
+    //Menambah rute dengan menggunakan struktur linked list
     void addRoute(String Route, int distance) {
         Places newRoute = new Places(Route, distance);
         if (destination == null) {

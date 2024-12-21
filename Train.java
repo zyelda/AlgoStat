@@ -14,7 +14,8 @@ class Train {
         this.topPassenger = null;
     }
 
-    void addPassenger(String passengerName) {
+    //Method menambah(push) passenger
+    void pushPassenger(String passengerName) {
         System.out.println("Berhasil menambahkan " + passengerName + " ke dalam kereta " + name);
         Passenger newPassenger = new Passenger(passengerName);
         if (topPassenger == null) {
